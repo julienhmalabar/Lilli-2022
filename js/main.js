@@ -8,6 +8,29 @@ if($("#hp_4").length > 0){
 	$hp_4 = $("#hp_4").offset().top;
 }
 
+function createSliderAvis (id) {
+
+	$('#'+id+ ' .row').slick({
+		  infinite: true,
+		  slidesToShow: 3,
+		  	slidesToScroll: 3,
+			arrows : true,
+		responsive: [
+		{
+		  breakpoint: 768,
+		  settings: {
+				slidesToShow: 1,
+				slidesToScroll: 1,
+				arrows : false,
+		  }
+		}
+		// You can unslick at a given breakpoint now by adding:
+		// settings: "unslick"
+		// instead of a settings object
+	  ]
+	});
+}
+
 $(document).ready(function(){
 	
 	if($(window).width()<$bp_mobile){ $("body").addClass("mobile"); } else { $("body.mobile").removeClass("mobile"); } 
@@ -42,20 +65,35 @@ $(document).ready(function(){
 		$(this).toggleClass("right");
 	});*/
 	
-	$(document).on("click",".switch span",function(){
+	$(document).on("click",".switch span",function() {
 		
-		if($(this).hasClass("switch-right")){ $(this).parent().addClass("right"); } else {  $(this).parent().removeClass("right"); }
+		//if($(this).hasClass("switch-right")){ $(this).parent().addClass("right"); } else {  $(this).parent().removeClass("right"); }
+		
+		$(this).parent().toggleClass("right");
+		
 		$this_class = $(this).attr("class");
 		$this_cible = $(this).parent().attr("rel");
 		$this_cible_class = $($this_cible).data("classes");
-		console.log("ici"+ $this_class);
+		//console.log("ici"+ $this_class);
 		$($this_cible).removeAttr("class").addClass($this_cible_class).addClass($this_class);
 		
 		if($($this_cible).hasClass("lam")){
 			$("body").removeClass("lae-body").addClass("lam-body");
+			
+			$('#avis-profs .row').slick('unslick');
+			$('#avis-profs').hide();
+			
+			$('#avis-parents').show();
+			createSliderAvis('avis-parents');
 		}
 		else if($($this_cible).hasClass("lae")){
 			$("body").removeClass("lam-body").addClass("lae-body");
+			
+			$('#avis-parents .row').slick('unslick');
+			$('#avis-parents').hide();
+			
+			$('#avis-profs').show();
+			createSliderAvis('avis-profs');
 		}
 		
 		//if($this_class == "section-avis-lam"){ $(".switch").addClass("right"); } else { $(".switch").removeClass("right"); }
@@ -154,25 +192,7 @@ $(document).ready(function(){
 		$(this).addClass("on");
 	});
 	
-	$('.slider-avis .row').slick({
-		  infinite: true,
-		  slidesToShow: 3,
-		  	slidesToScroll: 3,
-			arrows : true,
-		responsive: [
-    {
-      breakpoint: 768,
-      settings: {
-       		slidesToShow: 1,
-		  	slidesToScroll: 1,
-			arrows : false,
-      }
-    }
-    // You can unslick at a given breakpoint now by adding:
-    // settings: "unslick"
-    // instead of a settings object
-  ]
-	});
+	createSliderAvis ('avis-profs');
 });
 
 $(window).resize(function(){
