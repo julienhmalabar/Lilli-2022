@@ -65,7 +65,7 @@ $(document).ready(function(){
 		$(this).toggleClass("right");
 	});*/
 	
-	$(document).on("click",".switch span",function() {
+	$(document).on("click","#hp_8 .switch span",function() {
 		
 		//if($(this).hasClass("switch-right")){ $(this).parent().addClass("right"); } else {  $(this).parent().removeClass("right"); }
 		
@@ -97,6 +97,26 @@ $(document).ready(function(){
 		}
 		
 		//if($this_class == "section-avis-lam"){ $(".switch").addClass("right"); } else { $(".switch").removeClass("right"); }
+	});
+	
+	$(document).on("click",".section-faq .switch span",function() {
+				
+		$(this).parent().toggleClass("right");
+		
+		$this_class = $(this).attr("class");
+		$this_cible = $(this).parent().attr("rel");
+		$this_cible_class = $($this_cible).data("classes");
+		console.log("cible "+ $this_cible);
+		$($this_cible).removeAttr("class").addClass($this_cible_class).addClass($this_class);
+		
+		if($($this_cible).hasClass("lam")){
+			$('#faq-profs').hide();
+			$('#faq-parents').show();
+		}
+		else if($($this_cible).hasClass("lae")){
+			$('#faq-parents').hide();
+			$('#faq-profs').show();
+		}
 	});
 	
 	$(document).on("click",".read-more",function(e){
