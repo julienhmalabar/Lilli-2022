@@ -99,7 +99,7 @@ $(document).ready(function(){
 		//if($this_class == "section-avis-lam"){ $(".switch").addClass("right"); } else { $(".switch").removeClass("right"); }
 	});
 	
-	$(document).on("click",".section-faq .switch span",function() {
+	$(document).on("click ",".switch span",function() {
 				
 		$(this).parent().toggleClass("right");
 		
@@ -118,6 +118,9 @@ $(document).ready(function(){
 			$('#faq-profs').show();
 		}
 	});
+	
+	
+	
 	
 	$(document).on("click",".read-more",function(e){
 		e.preventDefault();
@@ -190,7 +193,7 @@ $(document).ready(function(){
 		
 	});
 	
-	$(document).on("click",".programmes:not(.open) .programmes-detail",function(e){
+	$(document).on("click","body:not(.mobile)  .programmes:not(.open) .programmes-detail",function(e){
 		e.preventDefault();
 		$(".programmes-detail-legende").show();
 		$(".programmes-detail-legende div").removeClass("on");
@@ -201,14 +204,47 @@ $(document).ready(function(){
 		
 	});
 	
-	$(document).on("click",".programmes.open .buttons a",function(e){
+	$(document).on("click","body:not(.mobile) .programmes.open .buttons a",function(e){
+	console.log("desk");
 		e.preventDefault(); 
 		var $o = $(this).attr("rel");
-		var $combien =$o*400;
+		var $path = $(".programmes-detail img").height() / 3;
+		var $combien =($o-1)*$path;
 		$(".programmes-detail").css("marginTop",-$combien);
 		$(".programmes-detail-legende div").removeClass("on");
 		$(".programmes-detail-legende-"+$o).addClass("on");
 		$(".programmes.open .buttons a").removeClass("on");
+		$(this).addClass("on");
+	});
+	
+	if($("body.mobile .programmes-detail")){
+		var $path = $(".programmes-detail img").height() / 3; console.log("iciqsdqsd"+$path);
+		$("body.mobile .programmes-detail").css("height",$path);
+		
+		$("body.mobile .programmes .buttons a:first-child").each(function(){
+			$(this).addClass("on");
+		});
+		$("body.mobile .programmes-detail-legende-1").addClass("on");
+		
+		var maxHeight = Math.max.apply(null, $(".programmes-detail-legende.d-lg-none > div").map(function ()
+			{
+				return $(this).height();
+			}).get());
+		
+		$(".programmes .container").css("paddingBottom",maxHeight-50);
+	}
+	
+	
+	$(document).on("click","body.mobile .programmes .buttons a",function(e){
+		console.log("iiii");
+		e.preventDefault(); 
+		var $o = $(this).attr("rel");
+		var $path = $(".programmes-detail img").height() / 3;
+		var $combien =($o-1)*$path;
+		$(".programmes-detail img").css("marginTop",-$combien);
+		$(".programmes-detail-legende div").removeClass("on");
+		$(".programmes-detail-legende-"+$o).addClass("on");
+		$(".programmes .buttons a").removeClass("on");
 		$(this).addClass("on");
 	});
 	
