@@ -65,7 +65,7 @@ $(document).ready(function(){
 		$(this).toggleClass("right");
 	});*/
 	
-	$(document).on("click","#hp_8 .switch span",function() {
+	$(document).on("click","#hp_8 .switch span, #lam_2 .switch span",function() {
 		
 		//if($(this).hasClass("switch-right")){ $(this).parent().addClass("right"); } else {  $(this).parent().removeClass("right"); }
 		
@@ -99,7 +99,7 @@ $(document).ready(function(){
 		//if($this_class == "section-avis-lam"){ $(".switch").addClass("right"); } else { $(".switch").removeClass("right"); }
 	});
 	
-	$(document).on("click ",".switch span",function() {
+	$(document).on("click",".section-faq .switch span",function() {
 				
 		$(this).parent().toggleClass("right");
 		
@@ -118,9 +118,6 @@ $(document).ready(function(){
 			$('#faq-profs').show();
 		}
 	});
-	
-	
-	
 	
 	$(document).on("click",".read-more",function(e){
 		e.preventDefault();
@@ -249,6 +246,66 @@ $(document).ready(function(){
 	});
 	
 	createSliderAvis ('avis-profs');
+	
+	createSliderAvis ('avis-parents');
+	
+	
+	/* CONTACT */
+    $('form#contact input').focusin(function() {
+        if ($(this).val()=='') {
+            $(this).prev('label').addClass('actif');
+        }
+    })
+	
+    $('form#contact input').focusout(function() {
+	  	if ($(this).val()=='') {
+			$(this).prev('label').removeClass('actif');
+		}
+    })
+	
+	$('#contact .btn').on( 'click', function(e) {
+		
+		e.preventDefault();
+		
+		var erreur = false;
+		
+		if ($('select[name="objet"]').children("option:selected").val() === '#') {
+			erreur = true;
+			$('select[name="objet"]').removeClass('is-valid').addClass('is-invalid');
+		} else {
+			$('select[name="objet"]').removeClass('is-invalid').addClass('is-valid');
+		}
+		
+		if ($('input[name="nom"]').val()==='') {
+			erreur = true;
+			$('input[name="nom"]').removeClass('is-valid').addClass('is-invalid');
+		} else {
+			$('input[name="nom"]').removeClass('is-invalid').addClass('is-valid');
+		}
+		
+		if ($('input[name="email"]').val()==='') {
+			erreur = true;
+			$('input[name="email"]').removeClass('is-valid').addClass('is-invalid');
+		} else {
+			$('input[name="email"]').removeClass('is-invalid').addClass('is-valid');
+		}
+				
+		if ($('textarea[name="message"]').val()==='') {
+			erreur = true;
+			$('textarea[name="message"]').removeClass('is-valid').addClass('is-invalid');
+		} else {
+			$('textarea[name="message"]').removeClass('is-invalid').addClass('is-valid');
+		}
+		
+		if (erreur) {
+			$('#Help').addClass('is-invalid');
+		} else {
+			$('#message').height($('#contact').height());
+			$('#contact').hide();
+			$('#message').show();
+		}
+		
+	})
 });
 
 $(window).resize(function(){
