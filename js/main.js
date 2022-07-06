@@ -143,6 +143,16 @@ $(document).ready(function(){
 		
 	});
 	
+	$(document).on("click",".equipe-single",function(e){
+		e.preventDefault();
+		var $dest = $(this).attr("rel");
+		
+		$(".popup-equipe").removeClass("open");
+		$("#"+$dest).addClass("open");
+		
+		
+	});
+	
 	$(document).on("click","body.mobile .inner-popup.open",function(e){
 		
 		
