@@ -10587,10 +10587,6 @@ textarea.form-control-lg {
   color: #FF855F;
 }
 
-.texte-citron {
-  color: #FFD77A;
-}
-
 .fs-14 {
   font-size: 14px;
   line-height: 1.3;
@@ -10815,22 +10811,22 @@ nav.main ul li a.btn-menu:after {
   bottom: 0;
 }
 
-.page-template-superparents nav.main ul li a, .lam-body nav.main ul li a, .page-template-manuel nav.main ul li a {
+.page-template-superparents nav.main ul li a, .lam-body nav.main ul li a {
   color: #fff;
 }
-.page-template-superparents nav.main ul li .btn-menu, .lam-body nav.main ul li .btn-menu, .page-template-manuel nav.main ul li .btn-menu {
+.page-template-superparents nav.main ul li .btn-menu, .lam-body nav.main ul li .btn-menu {
   border-color: #fff;
 }
-.page-template-superparents nav.main ul li .btn-menu:after, .lam-body nav.main ul li .btn-menu:after, .page-template-manuel nav.main ul li .btn-menu:after {
+.page-template-superparents nav.main ul li .btn-menu:after, .lam-body nav.main ul li .btn-menu:after {
   border-color: #fff;
 }
-.page-template-superparents.header-fixe nav.main ul li a:not(.btn), .lam-body.header-fixe nav.main ul li a:not(.btn), .page-template-manuel.header-fixe nav.main ul li a:not(.btn) {
+.page-template-superparents.header-fixe nav.main ul li a:not(.btn), .lam-body.header-fixe nav.main ul li a:not(.btn) {
   color: #24354F;
 }
-.page-template-superparents.mobile.header-fixe nav.main ul li .btn-menu, .lam-body.mobile.header-fixe nav.main ul li .btn-menu, .page-template-manuel.mobile.header-fixe nav.main ul li .btn-menu {
+.page-template-superparents.mobile.header-fixe nav.main ul li .btn-menu, .lam-body.mobile.header-fixe nav.main ul li .btn-menu {
   border-color: #24354F;
 }
-.page-template-superparents.mobile.header-fixe nav.main ul li .btn-menu:after, .lam-body.mobile.header-fixe nav.main ul li .btn-menu:after, .page-template-manuel.mobile.header-fixe nav.main ul li .btn-menu:after {
+.page-template-superparents.mobile.header-fixe nav.main ul li .btn-menu:after, .lam-body.mobile.header-fixe nav.main ul li .btn-menu:after {
   border-color: #24354F;
 }
 
@@ -12573,175 +12569,6 @@ section#lae_2 .inner-popup .illu {
 }
 @media (min-width: 992px) {
   .lam-1 .container {
-    /*	position: absolute;
-    	left: 50%;
-    	top: 50%;
-    	transform: translate(-50%,-50%);*/
-  }
-}
-
-.push-inscription {
-  background: #354F84;
-  padding-bottom: 6rem;
-}
-.push-inscription .mentions {
-  font-size: 12px;
-  line-height: 18px;
-  color: #fff;
-  font-style: italic;
-  padding-left: 1.5rem;
-  padding-right: 1.5rem;
-}
-@media (min-width: 992px) {
-  .push-inscription .mentions {
-    font-size: 14px;
-    line-height: 20px;
-  }
-}
-@media (min-width: 992px) {
-  .push-inscription .mentions {
-    padding-left: 0;
-    padding-right: 0;
-  }
-}
-.push-inscription .mentions a {
-  color: #fff;
-}
-.push-inscription .mentions a:hover {
-  text-decoration: none;
-}
-.push-inscription .container {
-  max-width: 1340px;
-}
-@media (min-width: 992px) {
-  .push-inscription .container {
-    padding-top: 4rem;
-    padding-bottom: 4rem;
-  }
-}
-.push-inscription .container form {
-  max-width: 665px;
-  margin: auto;
-}
-.push-inscription .container form input.form-control {
-  border: solid 1px #BAC6DF;
-  font-weight: normal;
-  padding: 0.375rem 2rem;
-}
-.push-inscription .container form .form-check-label {
-  font-size: 14px;
-}
-@media (min-width: 992px) {
-  .push-inscription .container form .form-check-label {
-    font-size: 18px;
-  }
-}
-.push-inscription .container form .form-check .form-check-input {
-  border-radius: 100%;
-}
-.push-inscription .bg-blue {
-  background: #354F84;
-  color: #fff;
-  border-radius: 20px;
-  padding: 3rem;
-  position: relative;
-}
-.push-inscription .bg-blue .title {
-  font-family: "NaiveLineSansExtraBlack";
-  font-size: 18px;
-}
-@media (min-width: 992px) {
-  .push-inscription .bg-blue .title {
-    font-size: 22px;
-  }
-}
-.push-inscription .bg-blue .illu {
-  position: absolute;
-  right: 6rem;
-  top: -7.5rem;
-}
-@media (max-width: 991.98px) {
-  .push-inscription .bg-blue .illu {
-    width: 97px;
-    height: 97px;
-    right: 1.5rem;
-    top: -3rem;
-  }
-}
-@media (max-width: 991.98px) {
-  .push-inscription .bg-blue .col {
-    -webkit-box-flex: 0;
-        -ms-flex: none;
-            flex: none;
-    font-size: 16px;
-    margin-top: 2.5rem;
-  }
-}
-.push-inscription .bg-white {
-  margin-top: -3rem;
-  border-radius: 20px;
-  color: #5C567B;
-  margin-bottom: 2rem;
-  padding-bottom: 1.5rem;
-  position: relative;
-}
-.push-inscription .bg-white h3, .push-inscription .bg-white .h3 {
-  color: #5C567B;
-}
-@media (max-width: 991.98px) {
-  .push-inscription .bg-white {
-    margin-bottom: 1.5rem;
-  }
-  .push-inscription .bg-white.container {
-    padding-top: 1.875rem;
-    padding-bottom: 1.875rem;
-    padding-left: 1.5rem;
-    padding-right: 1.5rem;
-  }
-}
-
-.manuel {
-  background: #25364F url("../img/manuel/lp-fond-etoiles.png") 50% 50% repeat;
-  color: #fff;
-  position: relative;
-}
-@media (min-width: 992px) {
-  .manuel .texte-defilant {
-    bottom: 0;
-    right: 0;
-    left: 0;
-    position: absolute;
-  }
-}
-@media (min-width: 992px) {
-  .manuel {
-    height: auto;
-    min-height: 900px;
-  }
-}
-.manuel .illus {
-  text-align: center;
-}
-@media (max-width: 991.98px) {
-  .manuel .illus {
-    margin-bottom: 2rem;
-  }
-}
-.manuel .illus img {
-  max-width: 40%;
-  vertical-align: bottom;
-}
-.manuel .illus img:last-child {
-  max-width: 10%;
-  height: auto;
-}
-.manuel .container {
-  max-width: 1340px;
-  padding-bottom: 3rem;
-}
-@media (min-width: 992px) {
-  .manuel .container {
-    padding-bottom: calc(3rem - 1px);
     /*	position: absolute;
     	left: 50%;
     	top: 50%;
