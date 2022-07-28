@@ -46,6 +46,7 @@ $darkerblue:#1D2D44 !default;
 $darkestblue:#1C3756 !default;
 
 $indigo:  #A2F2F8 !default;
+$turquoise: #00BF95 !default;
 $purple:  #5C567B !default;
 $purple-alt: #B6A3E5 !default;
 $pink:    #d63384 !default;
@@ -53,6 +54,7 @@ $red:     #FF255C !default;
 $orange:  #FF855F !default;
 $orange-hover: #EF7352 !default;
 $yellow:  #FDD579 !default;
+$yellow-hover: #F6C553 !default;
 $green:   #198754 !default;
 $green-alt: #00BC98 !default;
 $teal:    #42BC99 !default;
@@ -61,11 +63,14 @@ $cyan:    #54C1D1 !default;
 $fond-lae:	#FFF0E0 !default;
 $fond-lam:	#314167 !default;
 $aubergine:	#5C567B !default;
+$aubergine-hover: #4A4467 !default;
 $citron:	#FFD77A!default;
 $lightblue: #C5FCFF !default;
 $light-gray : #DBE1F1 !default;
 $light-purple: #F8F6FF !default;
 $light-yellow: #FFF9EB !default;
+
+$liseret: #BAC6DF !default;
 
 // scss-docs-end color-variables
 
@@ -490,8 +495,8 @@ $grid-breakpoints: (
   sm: 576px,
   md: 768px,
   lg: 992px,
-  xl: 1200px,
-  xxl: 1400px
+  xl: 1450px,
+  xxl: 1920px
 ) !default;
 // scss-docs-end grid-breakpoints
 

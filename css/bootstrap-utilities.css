@@ -142,14 +142,14 @@
     z-index: 1020;
   }
 }
-@media (min-width: 1200px) {
+@media (min-width: 1450px) {
   .sticky-xl-top {
     position: sticky;
     top: 0;
     z-index: 1020;
   }
 }
-@media (min-width: 1400px) {
+@media (min-width: 1920px) {
   .sticky-xxl-top {
     position: sticky;
     top: 0;
@@ -4448,7 +4448,7 @@
     text-align: center !important;
   }
 }
-@media (min-width: 1200px) {
+@media (min-width: 1450px) {
   .float-xl-start {
     float: left !important;
   }
@@ -5329,7 +5329,7 @@
     text-align: center !important;
   }
 }
-@media (min-width: 1400px) {
+@media (min-width: 1920px) {
   .float-xxl-start {
     float: left !important;
   }

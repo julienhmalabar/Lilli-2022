@@ -9,16 +9,24 @@
   font-style: normal;
 }
 
+.pe-lg-6{
+	@include media-breakpoint-up(lg) {
+	padding-right: 6rem;
+	}
+}
+
 .texte-cyan{
 	color: $cyan;
 }
 .texte-vert{
-	color: $green;
+	color: $teal;
 }
 .texte-orange{
 	color: $orange;
 }
-
+.texte-citron{
+	color: $citron;
+}
 .fs-14{
 	font-size: 14px;
 	line-height: 1.3;
@@ -33,8 +41,12 @@ p.fs-14{
 }
 
 .fs-16{
+	font-size: 15px;
+	line-height: 1.3;
+	@include media-breakpoint-up(lg) {
 	font-size: 16px;
 	line-height: 1.3;
+	}
 }
 
 .fs-20{
@@ -51,12 +63,23 @@ p.fs-14{
 	
 }
 
+.row-app{
+	margin-left: auto;
+	margin-right: auto;
+	max-width: 350px;
+	@include media-breakpoint-up(lg) {
+		max-width: 500px;
+	}
+	div{
+		padding-left: $grid-gutter-width/4;
+		padding-right: $grid-gutter-width/4;
+	}
+}
+
 body{
 	
 	overflow-x: hidden;
-	@include media-breakpoint-down(lg) {
-	font-size: 18px;
-	}
+	
 	&.no-scroll{
 		overflow: hidden;
 	}
@@ -90,6 +113,13 @@ header{
 	left: 0;
 	right: 0;
 	top: 0;
+	
+	@include media-breakpoint-up(lg) {
+	& > .row{
+		margin-left: 0;
+		margin-right: 0;
+	}
+	}
 }
 
 nav{
@@ -129,6 +159,14 @@ nav{
 						}
 					}
 				}
+			
+			&.on{
+				a{
+					&:after{
+						width: 100%;
+					}
+				}
+			}
 		}
 	}
 	
@@ -217,7 +255,7 @@ nav{
 	}
 }
 
-.page-template-superparents {
+.page-template-superparents, .lam-body {
 	nav{
 		&.main{
 			ul{
@@ -375,6 +413,13 @@ a.close{
 a.underliner{
 	color: $blue;
 	text-decoration: none;
+	display: inline-block;
+	&:hover{
+		&:after{
+			animation:linear underliner 0.4s forwards ;
+			bottom: -0.4rem;
+		}
+	}
 }
 				
 				
@@ -384,36 +429,48 @@ a.underliner{
 	&:after{
 						position: absolute;
 						left: 0;
-						bottom: -0.5rem;
+						bottom: -0.4rem;
 						content: "";
 						display: inline-block;
 						background: url("../img/trait.png") 0px 0px repeat-x;
 						background-size : auto 50%;
 						width: 100%;
 						height: 8px;
-						transition: all 0.6s;
+						transition: all 0.6s; 
 					}
+	
+	
 }
 
 h1, .h1{
+	@include media-breakpoint-down(xxl) {
+		font-size: 34px;
+	}
+	@include media-breakpoint-down(xl) {
+		font-size: 32px;
+	}
 	@include media-breakpoint-down(lg) {
 		font-size: 30px;
 	}
+	
 }
 h2, .h2{
-	@include media-breakpoint-down(lg) {
+	@include media-breakpoint-down(xxl) {
+		font-size: 30px;
+	}
+	@include media-breakpoint-down(xl) {
 		font-size: 22px;
 		margin-bottom: 0.75rem; 
 		margin-bottom: 1rem;
 	}
 	
 	max-width: 750px;
-	margin-left: auto;
+margin-left: auto;
 	margin-right: auto;
 
 
 	&.style-1{
-		background: url("../img/A propos/apropos-trait-titre1.png") center center no-repeat;
+		background: url("../img/Apropos/apropos-trait-titre1.png") center center no-repeat;
 		background-size: 100%;
 		padding-left: 2.5rem;
 		padding-right: 2.5rem;
@@ -423,7 +480,7 @@ h2, .h2{
 	}
 	
 	&.style-2{
-		background: url("../img/A propos/apropos-trait-titre2.png") center bottom no-repeat;
+		background: url("../img/Apropos/apropos-trait-titre2.png") center bottom no-repeat;
 		background-size: 100%;
 		padding-left: 2.5rem;
 		padding-right: 2.5rem;
@@ -433,7 +490,7 @@ h2, .h2{
 	}
 	
 	&.style-3{
-		background: url("../img/A propos/apropos-trait-titre3.png") center center no-repeat;
+		background: url("../img/Apropos/apropos-trait-titre3.png") center center no-repeat;
 		background-size: 100%;
 		padding-left: 5rem;
 		padding-right: 5rem;
@@ -445,7 +502,9 @@ h2, .h2{
 }
 
 h3, .h3{
-	@include media-breakpoint-down(lg) {
+	
+	
+	@include media-breakpoint-down(xl) {
 		font-size: 20px;
 		margin-bottom: 1rem;
 	}
@@ -458,18 +517,32 @@ h4, .h4{
 
 body{
 	
+	@include media-breakpoint-down(xxl) {
+	font-size: 20px;
+	}
+	
+	
+	@include media-breakpoint-down(xl) {
+		font-size: 18px;
+	}
 }
 
 .legende{
 	font-size: 16px;
-	@include media-breakpoint-up(lg) {
+	@include media-breakpoint-up(xl) {
+	font-size: 18px;
+	}
+	@include media-breakpoint-up(xxl) {
 	font-size: 20px;
 	}
 }
 
 .sous-titre{
 	font-size: 20px;
-	@include media-breakpoint-up(lg) {
+	@include media-breakpoint-up(xl) {
+	font-size: 23px;
+	}
+	@include media-breakpoint-up(xxl) {
 	font-size: $font-size-base * 1.18;
 	}
 }
@@ -477,10 +550,15 @@ body{
 .accroche{
 	font-family: "NaiveLineSansExtraBlack";
 	font-size: 14px;
-	@include media-breakpoint-up(lg) {
-	font-size: 0.90 * $font-size-base;
+	letter-spacing: 1px;
+	@include media-breakpoint-up(xl) {
+	font-size: 18px;
+		letter-spacing: 4px;
 	}
-	letter-spacing: 4px;
+	@include media-breakpoint-up(xxl) {
+	font-size: 20px;
+	}
+	
 	text-transform: uppercase;
 }
 
@@ -506,6 +584,14 @@ a.main-logo{
 	a.main-logo{
 		.logo-letters{
 			fill : #fff !important;
+		}
+	}
+}
+
+.header-fixe{
+	a.main-logo{
+		.logo-letters{
+			fill : #25364F !important;
 		}
 	}
 }
@@ -537,10 +623,18 @@ a.btn{
 	
 	&.btn-lae{
 		background: $aubergine;
+		
+		&:hover{
+			background: $aubergine-hover;
+		}
 	}
 	&.btn-yellow{
 		background: $yellow;
 		color: $gray-900;
+		
+		&:hover{
+			background: $yellow-hover;
+		}
 	}
 	&.btn-lam{
 		color: $blue;
@@ -668,7 +762,7 @@ a.malabar{
 				
 				&:after{
 					content: "";
-				
+					border-radius: 25px;
 					position: absolute;
 					background: $orange;
 					top: 100%;
@@ -692,6 +786,7 @@ a.malabar{
 	.popup-equipe{
 		position: fixed;
 		left: 0;
+		right: 0;
 		@include media-breakpoint-up(md) {
 		position: absolute;
 		}
@@ -699,6 +794,50 @@ a.malabar{
 		background: $white;
 		border-radius: 25px;
 		padding: 2*$grid-gutter-width/3;
+		z-index: -1;
+		
+		opacity: 0;
+		transition: opacity 0.6s;
+		&.open{
+			display: block;
+			opacity: 1; 
+			z-index: 1000;
+			@include media-breakpoint-down(md) {
+				top: 0;
+				bottom: 0;
+				padding-top: $grid-gutter-width;
+			}
+			@include media-breakpoint-up(md) {
+				z-index: 10;
+			}
+			transition: opacity 0.6s;
+		}
+		p{
+			margin-bottom: 1.5rem;
+			&:last-child{
+				margin-bottom: 0;
+			}
+		}
+	}
+}
+
+
+
+.popup-offre{
+	&.bloc{
+		.bloc-content{
+			padding-top: 2rem;
+			padding-bottom: 2rem;
+
+		}
+	}
+	
+		position: absolute !important;
+		left: 0;
+		@include media-breakpoint-up(md) {
+		position: absolute;
+		}
+		
 		z-index: -1;
 		
 		opacity: 0;
@@ -716,42 +855,75 @@ a.malabar{
 			transition: opacity 0.6s;
 		}
 		p{
-			margin-bottom: 1.5rem;
+			margin-bottom: 2.5rem;
 			&:last-child{
 				margin-bottom: 0;
 			}
 		}
+
+		a.close{
+			z-index: 10;
+			top: 50%;
+			transform: scale(0.8) translateY(-60%);
+			
+			&:before, &:after{
+				background-color: $white;
+			}
+		}
+	
+		.bloc-header, .bloc-content{
+			width: 100wv;
+			margin-left: -$grid-gutter-width/2;
+			margin-right: -$grid-gutter-width/2;
+		}
+		&.bloc-j{
+			a.close{
+				&:before, &:after{
+					background-color: $gray-900;
+				}
+			}
+		}
+	
+		
 	}
-}
+
 
 section#hp_1{
 	position: relative;
-	margin-top: -100px;
+	//margin-top: -100px;
 	
 	
 	
 	
 	background: $indigo url("../img/HP/header-bg-mobile.png") center bottom repeat-x;
 	@include media-breakpoint-down(lg) {
-		padding-bottom: 130%;
+		padding-bottom: 125%;
 		background-size: 100%;
 	}
 	@include media-breakpoint-up(lg) {
 		background: url("../img/HP/header-bg.png") center bottom repeat-x;
-		height: 980px;
+		//min-height: 900px;
+		
+		
+		//height: 100vh;
 		padding-bottom: 0;
+		background-size: 100%;
+		
+		padding-bottom: 20%;
 	}
 	
 	.content{
-		max-width: 580px;
+		max-width: 585px;
 		margin: 0 auto;
 		
 		padding: $grid-gutter-width/2;
 		@include media-breakpoint-up(lg) {
-			//padding: 0px;
+			
 		
 		}
 		padding-top: 160px;
+		
+		padding-top: 120px;
 	}
 	
 	.accroche{
@@ -764,11 +936,13 @@ section#hp_1{
 }
 
 #hp_1_bg, .equipe_bg{
-	margin-top: -100px;
+	//margin-top: -100px;
 	height: 980px;
 	display: none;
 	@include media-breakpoint-up(lg) {
 		display: block;
+		min-height: 900px;
+		height: 100vh;
 	}
 	position: absolute;
 	width: 100%;
@@ -920,6 +1094,23 @@ section#hp_1{
   }
 }
 
+@keyframes underliner {
+  from {
+    width: 100%;
+  }
+  to {
+     width: 0px
+  }
+}
+@-webkit-keyframes underliner {
+  from {
+    width: 100%;
+  }
+  to {
+     width: 0px
+  }
+}
+
 .lae-1{
 	background: $fond-lae url("../img/LAE/lae-header-fond-icones.png") center center repeat-x;
 	background-size: 100%;
@@ -958,15 +1149,22 @@ section#hp_1{
 		position: absolute;
 		left: 0;
 		right: 0;
+		
 		@include media-breakpoint-up(lg) {
+			right: $grid-gutter-width/2;
 			left: auto;
+		}
+		@include media-breakpoint-up(lg) {
+			
 			opacity: 0;
 			position: fixed;
-			right: $grid-gutter-width/2;
+			
 			bottom: auto;
+			z-index: 1;
 		}
 			@include media-breakpoint-up(xl) {
-				right: 5vw;
+				left: calc(50% + 600px); right: auto;
+				//right: 10vw;
 			}
 		width: 100%;
 		@include media-breakpoint-up(lg) {
@@ -1016,10 +1214,12 @@ section#hp_1{
 			right: calc(50% + #{$grid-gutter-width} /2 );
 			margin-top: 17%;
 			bottom: auto;
-			
+				z-index: -10;
 		}
-		z-index: 10;
 		
+		&.on{
+			z-index: 10;
+		}
 		
 		& > div{
 			
@@ -1027,7 +1227,7 @@ section#hp_1{
 			opacity: 0;
 			transition: 1.2s all; width: 100%;
 			@include media-breakpoint-up(lg) {
-			
+			z-index: -1;
 			}
 			&.on{
 				opacity: 1;
@@ -1185,27 +1385,53 @@ section#lae_1{
 	position: relative;
 	
 	@include media-breakpoint-up(lg) {
-		min-height: calc(100vh - 100px);
+		min-height: calc(100vh );
+		min-height: 900px;
 	}
 	
+	.position-lg-abs{
+		@include media-breakpoint-up(lg) {
+			position: absolute;
+			top: 50%;
+			transform: translateY(-50%);
+		}
+	}
 	.container{
+		
 		max-width: 1582px;
 		@include media-breakpoint-down(lg) {
 			
-			padding-top: 0rem;
+			//padding-top: 0rem;
+		}
+		
+		@include media-breakpoint-up(lg) {
+			
+			position: absolute;
+			bottom: 123px;
+			z-index: 10;
+			left: 50%;
+			transform: translateX(-50%);
+			
 		}
 	}
 	.row{
-		padding-top: 150px;
+		padding-top: 0px;
 		@include media-breakpoint-down(lg) {
 			
-			padding-top: 7rem;
+			//padding-top: 7rem;
 		}
 	}
 	
 	.bg-white{
 		margin-top: -95px;
 		padding-top: 105px;
+		
+		@include media-breakpoint-up(lg) {
+			position: absolute;
+			bottom: 0;padding-top: 95px;
+			left: 0;
+			right: 0;
+		}
 	}
 }
 
@@ -1215,27 +1441,54 @@ section#lae_1{
 	overflow: hidden;
 	position: relative;
 	table-layout: fixed;
-	width: 100%;
+	 
 }
-.defile {
-	display:iinline-block;
-	animation:linear marqueelike 20s infinite ;
-	margin-left:-100%;
-	text-align:left;
+.defile { white-space: nowrap; overflow: hidden; width: max-content;
+	span{
+		animation:linear marqueelike2 15s infinite ;
+		display:inline-block;
+		text-align:left;
 	white-space: nowrap;
 	float: left;
+	}
+	
+	//animation:linear marqueelike 20s infinite ;
+	//margin-left:-100%;
+	
 }
 
 
 
 
-
+/*
 .defile:after {
 	content:attr(data-text);
 	position:absolute;
 	white-space:nowrap;
 	padding-left:10px;
 }
+*/
+
+@-webkit-keyframes marqueelike2 {
+	0% { transform: translateX(0);}
+	100% {transform: translateX(-100%);}
+ }
+@-moz-keyframes marqueelike2 {
+	0% { transform: translateX(0);}
+	100% {transform: translateX(-100%);}
+ }
+@-o-keyframes marqueelike2 {
+	0% { transform: translateX(0);}
+	100% {transform: translateX(-100%);}
+ }
+@-ms-keyframes marqueelike2 {
+	0% { transform: translateX(0);}
+	100% {transform: translateX(-100%);}
+ }
+@keyframes marqueelike2 {
+	0% { transform: translateX(0);}
+	100% {transform: translateX(-100%);}
+ }
 
 @-webkit-keyframes marqueelike {
 	0%, 100% {margin-left:0;}
@@ -1268,9 +1521,13 @@ section#lae_1{
 }
 
 .defile {
-	display:block;
+	/*display:block;
 	animation:linear marqueelike 15s infinite ;
 	margin-left:-100%;
+	*/
+	span{
+		animation:linear marqueelike2 15s infinite ;
+	}
 	padding:0 5px;
 	text-align:left;
 	height:25px;
@@ -1363,6 +1620,17 @@ section#lae_2{
 				top: -102px;
 			}
 			@include media-breakpoint-up(lg) {
+				@include media-breakpoint-down(xl) {
+				img{
+					height: 9rem;
+					width: auto;
+				}
+				left: -0.2*$grid-gutter-width;
+				top: -8.65rem;
+				}
+			}
+			@include media-breakpoint-up(xl) {
+				display: block;
 			left: $grid-gutter-width*2;
 			top: -203px;
 			}
@@ -1380,8 +1648,18 @@ section#lae_2{
 				top: -97px;
 			}
 			@include media-breakpoint-up(lg) {
-			
-				
+				@include media-breakpoint-down(xl) {
+					img{
+						width: auto;
+						height: 10rem;
+					}
+						right: -0.5*$grid-gutter-width;
+					    top: -8.05rem;
+				}
+			}
+			@include media-breakpoint-up(xl) {
+			display: block;
+				right: $grid-gutter-width/2;
 			top: -223px;
 			}
 			z-index: 30;
@@ -1430,7 +1708,7 @@ section#lae_2{
 			@include media-breakpoint-up(lg) {
 			transition: all 0.6s;
 			}
-			z-index: 20;
+			z-index: 2000;
 			transform: scale(1);
 			
 			@include media-breakpoint-down(lg) {
@@ -1455,6 +1733,24 @@ section#lae_2{
 		right: 0;
 		border-radius: 20px;
 		
+		&.inner-popup-1{
+			background: $lightblue;
+		}
+		&.inner-popup-2{
+			background: $orange;
+			color: $white;
+			
+			a.close:after, a.close:before{
+				background-color: $white;
+			}
+		}
+		&.inner-popup-3{
+			background: $turquoise;
+			color: $white;
+			a.close:after, a.close:before{
+				background-color: $white;
+			}
+		}
 		
 		& > .row{
 			@include media-breakpoint-up(lg) {
@@ -1474,10 +1770,10 @@ section#lae_2{
 		
 		.illu{
 			position: absolute;
-			top: -$grid-gutter-width/2;
+			top: 0;
 			left: -$grid-gutter-width/2;
 			@include media-breakpoint-down(lg) {
-				left: $grid-gutter-width/4;
+				left: -$grid-gutter-width/2;
 			}
 		}
 	}
@@ -1492,6 +1788,15 @@ section#lae_2{
 	
 	position: absolute;
 	z-index: 0;
+	
+	&.cloud-2{
+		width: 220px;
+		height: 108px;
+	}
+	&.cloud-3{
+		width: 154px;
+		height: 76px;
+	}
 }
 
 
@@ -1519,19 +1824,19 @@ section#lae_2{
     
   }
 	12% {
-    transform: scale(1);
+    transform: translateX(-50%) scale(1);
 	top: -10px;
   }
   50% {
-   transform: scale(1);
+   transform: translateX(-50%) scale(1);
 				top: -10px;
   }
 	 62% {
-   transform: scale(0.7);
+   transform: translateX(-50%) scale(0.7);
 					top: 65px;
   }
 	100%{
-   transform: scale(0.7);
+   transform: translateX(-50%) scale(0.7);
 					top: 65px;
   }
 }
@@ -1541,19 +1846,19 @@ section#lae_2{
     
   }
 	12% {
-    transform: scale(0.7);
+    transform: translateX(-50%) scale(0.7);
 					top: 65px;
   }
   50% {
-   transform: scale(0.7);
+   transform: translateX(-50%) scale(0.7);
 					top: 65px;
   }
 	 62% {
-   transform: scale(1);
+   transform: translateX(-50%) scale(1);
 	top: -10px;
   }
 	100%{
-		transform: scale(1);
+		transform: translateX(-50%) scale(1);
 	top: -10px;
    
   }
@@ -1562,15 +1867,28 @@ section#lae_2{
 
 .phone-display{
 	display: none;
-	@include media-breakpoint-up(xl) {
+	@include media-breakpoint-up(lg) {
 		display: block;
 	}
-	width: 235px;
+	
 	right: 8vw;
-	height: 444px;
+	
+	height: 440px;
+		width: 220px;
+	
+	transform: scale(0.65);
+	bottom: 10vw;
+	@include media-breakpoint-up(xl) {
+		
+		transform: scale(1);
+		bottom: 15vw;
+	}
+	
 	background: url("../img/HP/header-phone.png") center center no-repeat;
 	position: absolute;
-	bottom: 30%;
+	//bottom: 30%;
+	
+	
 	
 	.phone-display-content{
 			div{
@@ -1616,13 +1934,13 @@ section#lae_2{
 		text-align: center;
 		img{
 			display: inline-block;
-			transform: scale(0.7);
+			transform: translateX(-50%) scale(0.7);
 			transition: all 0.6s;
-			left: -30px;
+			left: 0;
 			top: 65px;
 			position: absolute;
 			&:first-child{
-				transform: scale(1);
+				transform: translateX(-50%) scale(1);
 				top: -10px;
 			}
 		}
@@ -1631,6 +1949,7 @@ section#lae_2{
 		
 		width: 190px;
 		height: 362px;
+		transform: scale(0.95);
 		margin: 0 auto;
 		margin-top: 30px;
 		overflow: hidden;
@@ -1662,6 +1981,12 @@ section#lae_2{
 	}
 }
 
+.page-template-superparents{
+	#stickers{
+	display: none !important;
+	}
+}
+
 .container{
 	max-width: 1480px;
 	margin: 0 auto;
@@ -1670,6 +1995,13 @@ section#lae_2{
 	@include media-breakpoint-up(lg) {
 		padding-top: 8rem;
 	padding-bottom: 8rem;
+	}
+	
+	@include media-breakpoint-up(lg) {
+	& > .row{
+		margin-left: 0;
+		margin-right: 0;
+	}
 	}
 }
 
@@ -1684,38 +2016,266 @@ section#lae_2{
 	color: $white;
 	
 	@include media-breakpoint-up(lg) {
-		height: calc(100vh - 100px);
+		//height: calc(100vh - 100px);
 	}
 	
 	
 }
 
 .lam-1{
+	position: relative;
 	.texte-defilant{
-		position: absolute; 
-		left: 0;
+		
+		@include media-breakpoint-up(lg) {
+		bottom: 0;
+		right: 0;
+			left: 0;
+			position: absolute;
+		}
 	}
 	@include media-breakpoint-up(lg) {
 		height: auto;
+//		height: 100vh;
+		min-height: 900px;
+	
 	}
+	
+	.container{
+		
+		@include media-breakpoint-up(lg) {
+			
+			
+			
+		/*	position: absolute;
+			left: 50%;
+			top: 50%;
+			transform: translate(-50%,-50%);*/
+		
+		}
+	}
+}
+
+.push-inscription{
+	background: $blue-alt;
+	padding-bottom:  $grid-gutter-width*2;
+	
+	.mentions{
+		font-size: 12px;
+		line-height: 18px;
+		@include media-breakpoint-up(lg) {
+		font-size: 14px;
+		line-height: 20px;
+		}
+		color: $white;
+		font-style: italic;
+		
+		padding-left: $grid-gutter-width/2;
+		padding-right: $grid-gutter-width/2;
+		@include media-breakpoint-up(lg) {
+			padding-left: 0;
+			padding-right: 0;
+		}
+		
+		a{
+			color: $white;
+			&:hover{
+				text-decoration: none;
+			}
+		}
+	}
+	.container{
+		max-width: 1340px;
+		
+		@include media-breakpoint-up(lg) {
+			padding-top: 4rem;
+			padding-bottom: 4rem;
+		}
+		
+		
+		form{
+			max-width: 665px;
+			margin: auto;
+			
+			input{
+				&.form-control{
+					border: solid 1px $liseret;
+					font-weight: normal;
+					padding: 0.375rem 2rem;
+				}
+			}
+			
+			.form-check-label{
+				font-size: 14px;
+				@include media-breakpoint-up(lg) {
+				font-size: 18px;
+				}
+			}
+			
+			.form-check .form-check-input {
+			
+					border-radius: 100%;
+			
+			}
+				
+		}
+	}
+	
+	
+	.bg-blue{
+		background: $blue-alt;
+		color: $white;
+		border-radius: 20px;
+		padding: $grid-gutter-width;
+		position: relative;
+		
+		.title{
+			font-family: "NaiveLineSansExtraBlack";
+			font-size : 18px;
+			@include media-breakpoint-up(lg) {
+				font-size : 22px;
+			}
+		}
+		
+		.illu{
+			position: absolute;
+			right: $grid-gutter-width*2;
+			top: -$grid-gutter-width*2.5;
+			@include media-breakpoint-down(lg) {
+				width: 97px;
+				height: 97px;
+				right: $grid-gutter-width*0.5;
+				top: -$grid-gutter-width;
+			}
+		}
+		
+		.col{
+			@include media-breakpoint-down(lg) {
+				flex: none;
+				font-size: 16px;
+				margin-top: 2.5rem;
+			}
+		}
+	}
+	.bg-white{
+		
+		margin-top: -3rem;
+		border-radius: 20px;
+		color: $purple;
+		h3{
+			color: $purple;
+		}
+		margin-bottom:  $grid-gutter-width/3*2;
+		padding-bottom: $grid-gutter-width/2;
+		position: relative;
+		@include media-breakpoint-down(lg) {
+			margin-bottom: $grid-gutter-width/2;
+			
+			
+			&.container{
+				padding-top: $grid-gutter-width/2*1.25;
+				padding-bottom: $grid-gutter-width/2*1.25;
+				
+				padding-left:$grid-gutter-width/2;
+				padding-right:$grid-gutter-width/2;
+				
+			}
+		}
+	}
+	
+}
+
+.manuel{
+	background: $darkblue url("../img/manuel/lp-fond-etoiles.png") 50% 50% repeat;
+	color: $white;
+	
+	@include media-breakpoint-up(lg) {
+		//height: calc(100vh - 100px);
+		
+	}
+	
+	
+	position: relative;
+	.texte-defilant{
+		
+		@include media-breakpoint-up(lg) {
+		bottom: 0;
+		right: 0;
+			left: 0;
+			position: absolute;
+		}
+	}
+	@include media-breakpoint-up(lg) {
+		height: auto;
+		min-height: 900px;
+	
+	}
+	
+	.illus{
+		text-align: center;
+		@include media-breakpoint-down(lg) {
+			margin-bottom: 2rem;
+		}
+		img{
+			max-width: 40%;
+			vertical-align: bottom;
+			&:last-child{
+				max-width:10%;
+				height: auto;
+			}
+		}
+	}
+	
+	.container{
+		
+		max-width: 1340px;
+		padding-bottom: 3rem;
+		@include media-breakpoint-up(lg) {
+			
+			padding-bottom: calc(3rem - 1px);
+			
+		/*	position: absolute;
+			left: 50%;
+			top: 50%;
+			transform: translate(-50%,-50%);*/
+		
+		}
+		
+		
+	}
+	
+	
 }
 
 #hp_4{
 	
-	background: $white url("../img/pedagogie-ill.png") 20vw 20vh no-repeat;
+	background: $white url("../img/pedagogie-ill-mobile.png") center top no-repeat;
+	background-size: 30%;
+	
+	
+	
 	@include media-breakpoint-down(lg) {
-		background-size:60vw;
+		
+		background-size: 15%;
 	}
-	background-attachment: fixed;
+	@include media-breakpoint-down(sm) {
+		background-size: 30%;
+		background-attachment: fixed;
+   		 background-position-y: -10vh;
+	}
+	
 	
 	@include media-breakpoint-up(lg) {
+		background-attachment: fixed;
 		background: $white url("../img/pedagogie-ill.png") 60vw -3vh no-repeat;
 		background-attachment: fixed;
 	}
 	
 	&.letscroll{
 		@include media-breakpoint-up(lg) {
-		background-attachment :scroll;
+			/*
+			background-attachment :scroll;
+			background-position: 60vw -11vh;
+			*/
 		}
 		//background-position: 60vw 10vh;
 	}
@@ -1796,8 +2356,11 @@ section#lae_2{
 				
 				.illu{
 					top: 50%;
-					left: 25%;
-					transform: translate(-80%,-90%);
+					left: 50%;
+					transform: translate(-170px,-90%);
+					@include media-breakpoint-up(lg) {
+					transform: translate(-190px,-90%);
+					}
 				}
 				
 			}
@@ -1807,12 +2370,21 @@ section#lae_2{
 				.illu{
 					top: 50%;
 					left: auto;
-					right: 25%;
-					transform: translate(70%,-70%);
+					left: 50%;
+					transform: translate(60px,-70%);
+					@include media-breakpoint-up(lg) {
+					transform: translate(80px,-70%);
+					}
 				}
 			}
 			
 		
+	}
+	
+	.legende{
+		max-width: 240px;
+		margin-left: auto;
+		margin-right: auto;
 	}
 }
 
@@ -1823,7 +2395,7 @@ section#lae_2{
 	transform: translateY(-2rem);
 	display: inline-block;
 	@include media-breakpoint-up(lg) {
-		display: none;
+		display: none !important;
 	}
 	
 	&.on{
@@ -1856,7 +2428,10 @@ section#lae_2{
 .bloc-2-cols-full{
 	
 	.col-lg-6{
+		padding-top: 4rem;
+		@include media-breakpoint-up(lg) {
 		padding-top: 8rem;
+		}
 		padding-bottom: 54vw;
 		
 		
@@ -1982,12 +2557,14 @@ section#lae_2{
 	background:url("../img/bandeau-nouveau-mobile.jpg") center center no-repeat;
 	@include media-breakpoint-down(lg) {
 	background-size :auto 100%;
+		animation: leftrightMobile 8s linear 0s infinite;
 	}
 	height: 118px;
 	@include media-breakpoint-up(lg) {
-	height: 365px;
-	background: url("../img/bandeau-nouveau.jpg") 0px center repeat-x;
-	animation: leftright 240s linear 0s infinite;
+	height: 300px;
+		background:url("../img/bandeau-nouveau-mobile.jpg") center top no-repeat;
+	//background: url("../img/bandeau-nouveau.jpg") 0px center repeat-x;
+	animation: leftright 10s linear 0s infinite;
 	}
 }
 
@@ -1996,10 +2573,18 @@ section#lae_2{
 /* animation */
 @-webkit-keyframes leftright {
   from {
-    background-position: 0 center;
+    background-position: -35vw top;
   }
   to {
-   background-position: 1000vw center;
+   background-position: 100vw top;
+  }
+}
+@-webkit-keyframes leftrightMobile {
+  from {
+    background-position: -90vw center;
+  }
+  to {
+   background-position: 100vw center;
   }
 }
 
@@ -2011,6 +2596,7 @@ section#lae_2{
 	@include media-breakpoint-down(lg) {
 		left: 5vw;
 		transform: translateY(-6.6rem);
+		display: none;
 	}
 	img{
 		@include media-breakpoint-down(lg) {
@@ -2063,6 +2649,9 @@ section#lae_2{
 		height: 880px;
 		padding-bottom: 0px;
 		background: $aubergine url("../img/LAE/lae-disponiblesur-fond.png") center bottom repeat-x;
+		background-size: cover;
+		padding-bottom: 20vw;
+		height: auto;
 	}
 	
 	
@@ -2219,7 +2808,7 @@ footer{
 }
 .section-avis{
 	@include media-breakpoint-up(lg) {
-	height: calc(100vh - 100px);
+	//height: calc(100vh - 100px);
 	}
 	position: relative;
 	z-index: 2;
@@ -2298,7 +2887,7 @@ footer{
 	
 	.slick-list{
 		@include media-breakpoint-down(lg) {
-			padding: 0 20% 0 0;
+			padding: 0 15% 0 0;
 			
 			padding-left: $grid-gutter-width/4;
 		}
@@ -2332,7 +2921,11 @@ footer{
 	min-height: 280px;
 	border-radius: 20px;
 	z-index: 2;
+	font-size: 18px;
+	@include media-breakpoint-up(xxl) {
 	font-size: 20px;
+	}
+	line-height: 1.2;
 	
 	&:before{
 		content: "";
@@ -2383,7 +2976,10 @@ footer{
 		bottom: $grid-gutter-width/2;
 		left: $grid-gutter-width/2;
 		right: $grid-gutter-width/2;
+		font-size: 14px;
+		@include media-breakpoint-up(lg) {
 		font-size: 16px;
+		}
 		
 		.avis-footer-pic{
 			width: 50px;
@@ -2447,13 +3043,13 @@ footer{
 	}
 	
 	.btn{
-			background: $citron;
+			/*background: $citron;
 			color: $blue;
 			&:hover{
 				opacity: 0.7;
 				background: $citron;
 			color: $blue;
-			}
+			}*/
 		}
 	
 	&.section-routine-jour{
@@ -2466,10 +3062,10 @@ footer{
 			}
 		}
 		.illu-routine-jour.illu-routine-left{
-			transform: translate(-100%, -50%);
+			transform: translate(-80%, -50%);
 		}
 		.illu-routine-jour.illu-routine-right{
-			transform: translate(90%, -50%);
+			transform: translate(80%, -50%);
 		}
 		.illu-routine-left.illu-routine-soir{
 				opacity: 0;
@@ -2523,7 +3119,7 @@ footer{
 	.illu-routine-left{
 		position: absolute;
 		top:50%;
-		transform: translate(-120%,-50%);
+		transform: translate(-80%,-50%);
 		transition : all 0.6s;
 		
 	}
@@ -2636,13 +3232,16 @@ nav.onglets{
 	}
 	
 	ul{
+		width: 100%;
 		
 		border-bottom: solid 2px rgba(92,86,123,.25);
 		li{
+			text-align: left;
 			vertical-align: middle;
+			white-space: nowrap;
 			padding: $grid-gutter-width/3 0;
 			@include media-breakpoint-down(lg) {
-			min-width: 75vw;
+			min-width: 65vw;
 			}
 			@include media-breakpoint-up(lg) {
 				padding: $grid-gutter-width/4 0;
@@ -2677,11 +3276,11 @@ nav.onglets{
 				}
 				
 				text-transform: uppercase;
-				font-size: 16px;
+				font-size: 14px;
 				@include media-breakpoint-up(lg) {
-				font-size: 18px;
+				//font-size: 18px;
 				}
-				font-family: "NaiveLineSansExtraBlack";
+				//font-family: "NaiveLineSansExtraBlack";
 				text-align: left;
 				
 				span.small{
@@ -2764,8 +3363,12 @@ nav.onglets{
 	
 	.pastille{
 		display: inline-block;
+		width: 100px;
+		height: 100px;
+		@include media-breakpoint-up(lg) {
 		width: 130px;
 		height: 130px;
+		}
 		transition : all 0.8s;
 	}
 	
@@ -2830,7 +3433,7 @@ nav.onglets{
 						margin-bottom: 0;
 					}
 				}
-
+				color: $gray-900;
 				max-height: 0px;
 				transition: all 0.6s;
 				margin-top: 0;
@@ -2838,13 +3441,13 @@ nav.onglets{
 			}
 
 			&.open{
-				.faq-item-r{
+				.faq-item-r {
 					max-height: 2000px;
 					margin-top: 1.5rem;
 					opacity: 1;
 				}
 				
-				a.faq-item-q{
+				a.faq-item-q {
 					&:after{
 						transform: rotate(135deg) translate(50%,-50%);
 						
@@ -2856,14 +3459,15 @@ nav.onglets{
 				}
 			}
 
-			a.faq-item-q{
+			a.faq-item-q {
 				display: block;
 				color: $gray-900;
 				text-decoration: none;
 				font-size: 20px;
 				font-weight: 600;
-
+				padding-right: 2/3*$grid-gutter-width;
 				position: relative;
+				
 				&:after{
 					content: "";
 					width: 12px;
@@ -2892,6 +3496,7 @@ nav.onglets{
 	left: 0;
 	right: 0;
 	overflow: hidden;
+	z-index: -1;
 	.cloud{
 		top: 15%;
 		
@@ -2999,6 +3604,12 @@ nav.onglets{
 	
 	.bloc-content{
 		padding: $grid-gutter-width/2;
+		
+		.bloc-content-title{
+			font-size: 18px;
+			font-family: "NaiveLineSansExtraBlack";
+			margin-bottom: 0.8rem;
+		}
 		
 		.header-price{
 			font-size: 24px;
