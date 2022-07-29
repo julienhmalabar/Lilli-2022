@@ -12619,6 +12619,10 @@ section#lae_2 .inner-popup .illu {
     padding-bottom: 4rem;
   }
 }
+.push-inscription .container #message {
+  max-width: 665px;
+  margin: auto;
+}
 .push-inscription .container form {
   max-width: 665px;
   margin: auto;
